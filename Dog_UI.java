@@ -14,13 +14,6 @@ import java.util.*;
 
 // import -- servlet
 public class Dog_UI {
-// ----------------------------- THREAD --------------------------------------	
-	private class DogThread extends Thread {
-		public void run(){
-				
-		}
-	}
-// ---------------------------- THREAD ---------------------------------------
 	Logger log = Logger.getLogger(Dog_UI.class.getName());	
 	
 	private Scanner input;	
@@ -35,6 +28,7 @@ public class Dog_UI {
 	private PutToFile putFile;
 	private String[] listBehavior = {"run", "walk", "bark", "jump", "eat", "sleep",
 					"wake up", "fawning", "defecate", "urinate"};
+	
 	public Dog_UI() throws IOException, SQLException{
 		input = new Scanner(System.in);
 		apb = new PitbullTerrier();
@@ -48,7 +42,17 @@ public class Dog_UI {
 		putFile.appendData(true);
 		dateFormat = new SimpleDateFormat("E yyyy.MM.dd 'at' hh:mm:ss a"); 
 		putFile.writeData(dateFormat.format(date) + "\n");
+		
+		DogThread test = new DogThread();
+		test.start();
 	}
+// ----------------------------- BEGIN THREAD CLASS --------------------------------	
+	private class DogThread extends Thread {
+		
+	public void run(){
+		actionDog();
+	}	
+	
 	public void actionDog(){
 		int select = 0;	
 		dogs = new GeneralDog[5];
@@ -58,6 +62,7 @@ public class Dog_UI {
 		dogs[3] = sb;
 		dogs[4] = rott;
 		while(true){
+			/*	
 			String detailTmp = "";
 			for(int i=0;i<dogs.length;i++){
 				detailTmp += (i + 1) + ".name is " + dogs[i].getName() + "\n"; 
@@ -81,16 +86,33 @@ public class Dog_UI {
 			}
 			
 			print(detailTmp);
-			select = inputMode(1, dogs.length + 1);	
-			if(select == dogs.length + 1){
-				exitProgram();		
-			}else{
-				if(dogs[select - 1].getHP() > 0){
-					selectBehavior(select - 1);
-				}else{
-					println(dogs[select - 1].getName() + " dead.....select again please. \n[enter to continue]");
-					input.nextLine();	
+			*/
+			int alive = 0;
+			int aliveIndex = 0;
+			for(int i=0;i<dogs.length;i++){
+				if(dogs[i].getHP() > 0){
+					alive++;
+					aliveIndex = i;
 				}
+				if(alive > 1)
+					break;	
+			}
+			if(alive == 1){
+				println("The Winner is " + dogs[aliveIndex].getName());
+				log.info("The Winner is " + dogs[aliveIndex].getName());
+				exitProgram();
+			}
+		//	select = inputMode(1, dogs.length + 1);	
+			select = (int)(Math.random()*dogs.length + 1);
+		//	if(select == dogs.length + 1){
+		//		exitProgram();		
+		//	}else{
+				if(dogs[select - 1].getHP() > 0)//{
+					selectBehavior(select - 1);
+		//		}else{
+			//		println(dogs[select - 1].getName() + " dead.....select again please. \n[enter to continue]");
+			//		input.nextLine();	
+		//		}
 			}	
 		}		
 	}
@@ -137,22 +159,26 @@ public class Dog_UI {
 			int no = 1;	
 			for(int i=0;i<dogs.length;i++){
 				if(!dogs[dog].getName().equals(dogs[i].getName())){
+					/*
 					println(no + ".Name : " + dogs[i].getName());	
 					println("  HP : " + dogs[i].getHP());
 					println("  Height : " + dogs[i].getHeight());
 					println("  Weight : " + dogs[i].getWeight());
 					println("  Breed : " + dogs[i].getBreed());
 					println("  Sex : " + dogs[i].getSex());	
+					*/
 					realNo[no - 1] = i;
 					no++;
 				}
 			}
-			println(dogs.length + ".undo");
-			select = inputMode(1, dogs.length);
+	//		println(dogs.length + ".undo");
+		
+			select = (int)(Math.random()*dogs.length +1);
+	//		select = inputMode(1, dogs.length);
 			if(select != dogs.length && dogs[realNo[select - 1]].getHP() <= 0){
 				println(dogs[realNo[select - 1]].getName() + " dead.....");
 				println("select fight match again please. \n[enter to continue]");	
-				input.nextLine();
+				//input.nextLine();
 				continue;
 			}	
 			if(select == dogs.length)
@@ -238,6 +264,7 @@ public class Dog_UI {
 		while(true){
 			String detailTmp = "";
 			println("name is " + dogs[dog].getName() + " [breed is " + dogs[dog].getBreed()  + "]");	
+		/*
 			for(int i=0;i<listBehavior.length + 1;i++){
 				if(i < listBehavior.length){
 					detailTmp += (i + 1) + "." + listBehavior[i] + "\n";
@@ -246,8 +273,10 @@ public class Dog_UI {
 					detailTmp += (i + 2) + ".undo";
 				}
 			}	
+		*/
 			println(detailTmp);
-			select = inputMode(1, listBehavior.length + 2);
+			select = (int)(Math.random()*listBehavior.length + 2);
+		//	select = inputMode(1, listBehavior.length + 2);
 			if(select < listBehavior.length + 2){		
 			println("====================================");
 			switch(select){
@@ -365,4 +394,5 @@ public class Dog_UI {
 			println(ex.toString());
 		}
 	}
-}
+}// END THREAD CLASS
+
