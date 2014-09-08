@@ -12,10 +12,18 @@ import java.io.*;
 import java.sql.SQLException;
 import java.util.*;
 
+import javax.servlet.*;
+import javax.servlet.http.*;
+
 // import -- servlet
-public class Dog_UI {
+public class Dog_UI extends HttpServlet {
 	Logger log = Logger.getLogger(Dog_UI.class.getName());	
-	
+
+
+	private DogThread apdThread, idThread, fdThread, sbThread, rottThread;
+	private boolean fightBusy = false;
+	private String updateData = "";	
+
 	private Scanner input;	
 	private PitbullTerrier apb;	
 	private IceDog id;
@@ -28,14 +36,82 @@ public class Dog_UI {
 	private PutToFile putFile;
 	private String[] listBehavior = {"run", "walk", "bark", "jump", "eat", "sleep",
 					"wake up", "fawning", "defecate", "urinate"};
-	
-	public Dog_UI() throws IOException, SQLException{
-		input = new Scanner(System.in);
+
+	public void init() throws ServletException{
+                input = new Scanner(System.in);
+
 		apb = new PitbullTerrier();
+                apb.setActionTime(2);
+
+                id = new IceDog();
+                id.setActionTime(4);
+
+                fd = new FireyerDog();
+                fd.setActionTime(6);
+
+                sb = new StBernard();
+                sb.setActionTime(8);
+
+                rott = new Rottweilers();
+                rott.setActionTime(10);
+
+                dogs = new GeneralDog[5];
+                dogs[0] = apb;
+                dogs[1] = id;
+                dogs[2] = fd;
+                dogs[3] = sb;
+                dogs[4] = rott;
+
+                date = new Date();
+                putFile = new PutToFile("Super Dog History");
+                putFile.isExistFile();
+                putFile.appendData(true);
+                dateFormat = new SimpleDateFormat("E yyyy.MM.dd 'at' hh:mm:ss a");
+                putFile.writeData(dateFormat.format(date) + "\n");
+
+                apdThread = new DogThread(apb);
+                apdThread.start();
+                idThread = new DogThread(id);
+                idThread.start();
+                fdThread = new DogThread(fd);
+                fdThread.start();
+                sbThread = new DogThread(sb);
+                sbThread.start();
+                rottThread = new DogThread(rott);
+
+	}
+	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+		res.setContentType("text/plain");
+		res.setCharacterEncoding("UTF-8");
+		PrintWriter out = res.getWriter();		
+		out.println(updateData);	
+	}
+/*
+		public Dog_UI() throws IOException, SQLException{
+		input = new Scanner(System.in);
+		
+		apb = new PitbullTerrier();
+		apb.setActionTime(2);
+		
 		id = new IceDog();
+		id.setActionTime(4);
+
 		fd = new FireyerDog();
+		fd.setActionTime(6);
+
 		sb = new StBernard();
+		sb.setActionTime(8);		
+
 		rott = new Rottweilers();
+		rott.setActionTime(10);
+
+		dogs = new GeneralDog[5];
+                dogs[0] = apb;
+                dogs[1] = id;
+                dogs[2] = fd;
+                dogs[3] = sb;
+                dogs[4] = rott;
+
 		date = new Date();
 		putFile = new PutToFile("Super Dog History");
 		putFile.isExistFile();
@@ -43,26 +119,35 @@ public class Dog_UI {
 		dateFormat = new SimpleDateFormat("E yyyy.MM.dd 'at' hh:mm:ss a"); 
 		putFile.writeData(dateFormat.format(date) + "\n");
 		
-		DogThread test = new DogThread();
-		test.start();
+		apdThread = new DogThread(apb);
+		apdThread.start();
+		idThread = new DogThread(id);	
+		idThread.start();
+		fdThread = new DogThread(fd);
+		fdThread.start();
+		sbThread = new DogThread(sb);
+		sbThread.start();
+		rottThread = new DogThread(rott);
+		rottThread.start();
 	}
-// ----------------------------- BEGIN THREAD CLASS --------------------------------	
-	private class DogThread extends Thread {
-		
-	public void run(){
-		actionDog();
-	}	
+*/
+	public class DogThread extends Thread {
+		public GeneralDog dogTmp;	
+		public DogThread(){}
+
+		public DogThread(GeneralDog tmp){
+			dogTmp = tmp;
+		}
+		@Override	
+		public void run(){
+			actionDog(dogTmp);		
+		}
 	
-	public void actionDog(){
-		int select = 0;	
-		dogs = new GeneralDog[5];
-		dogs[0] = apb;
-		dogs[1] = id;
-		dogs[2] = fd;
-		dogs[3] = sb;
-		dogs[4] = rott;
+
+	public void actionDog(GeneralDog dog){
+		//int select = 0;	
 		while(true){
-			/*	
+			/*
 			String detailTmp = "";
 			for(int i=0;i<dogs.length;i++){
 				detailTmp += (i + 1) + ".name is " + dogs[i].getName() + "\n"; 
@@ -84,36 +169,22 @@ public class Dog_UI {
 					detailTmp += "\n\n" + (i + 2) + ".exit";	
 				detailTmp += "\n\n";
 			}
-			
-			print(detailTmp);
 			*/
-			int alive = 0;
-			int aliveIndex = 0;
-			for(int i=0;i<dogs.length;i++){
-				if(dogs[i].getHP() > 0){
-					alive++;
-					aliveIndex = i;
-				}
-				if(alive > 1)
-					break;	
-			}
-			if(alive == 1){
-				println("The Winner is " + dogs[aliveIndex].getName());
-				log.info("The Winner is " + dogs[aliveIndex].getName());
-				exitProgram();
-			}
-		//	select = inputMode(1, dogs.length + 1);	
-			select = (int)(Math.random()*dogs.length + 1);
-		//	if(select == dogs.length + 1){
-		//		exitProgram();		
-		//	}else{
-				if(dogs[select - 1].getHP() > 0)//{
+			selectBehavior(dog);	
+			//updateData += print(detailTmp);
+			//select = inputMode(1, dogs.length + 1);	
+			/*if(select == dogs.length + 1){
+				exitProgram();		
+			}else{
+				if(dogs[select - 1].getHP() > 0){
 					selectBehavior(select - 1);
-		//		}else{
-			//		println(dogs[select - 1].getName() + " dead.....select again please. \n[enter to continue]");
-			//		input.nextLine();	
-		//		}
-			}	
+				}else{
+					updateData += println(dogs[select - 1].getName() + " dead.....select again please. \n[enter to continue]");
+					input.nextLine();	
+				}
+			}
+			*/	
+			
 		}		
 	}
 	public boolean counterAttackRandom(int dogAttk, int dogDef){
@@ -136,16 +207,16 @@ public class Dog_UI {
 				break;
 		}
 		result = dogs[dogAttk].getHP() - damage;
-		println(dogs[dogDef].getName() + " counterattrack " + dogs[dogAttk].getName() +
+		updateData += println(dogs[dogDef].getName() + " counterattrack " + dogs[dogAttk].getName() +
                			          " with " +  attkTmp + " effect : -" + damage);
 		if(result < 0){
 			result = 0;	
 			dogs[dogAttk].setHP(result);
-			println(dogs[dogAttk].getName() + " dead.....");
+			updateData += println(dogs[dogAttk].getName() + " dead.....");
 			return false;	
 		}else{	
 			dogs[dogAttk].setHP(result);	
-			println(dogs[dogAttk].getName() + " HP Remain : " + dogs[dogAttk].getHP());
+			updateData += println(dogs[dogAttk].getName() + " HP Remain : " + dogs[dogAttk].getHP());
 		}
 		return true;
 	}
@@ -159,26 +230,22 @@ public class Dog_UI {
 			int no = 1;	
 			for(int i=0;i<dogs.length;i++){
 				if(!dogs[dog].getName().equals(dogs[i].getName())){
-					/*
-					println(no + ".Name : " + dogs[i].getName());	
-					println("  HP : " + dogs[i].getHP());
-					println("  Height : " + dogs[i].getHeight());
-					println("  Weight : " + dogs[i].getWeight());
-					println("  Breed : " + dogs[i].getBreed());
-					println("  Sex : " + dogs[i].getSex());	
-					*/
+					updateData += println(no + ".Name : " + dogs[i].getName());	
+					updateData += println("  HP : " + dogs[i].getHP());
+					updateData += println("  Height : " + dogs[i].getHeight());
+					updateData += println("  Weight : " + dogs[i].getWeight());
+					updateData += println("  Breed : " + dogs[i].getBreed());
+					updateData += println("  Sex : " + dogs[i].getSex());	
 					realNo[no - 1] = i;
 					no++;
 				}
 			}
-	//		println(dogs.length + ".undo");
-		
-			select = (int)(Math.random()*dogs.length +1);
-	//		select = inputMode(1, dogs.length);
+			updateData += println(dogs.length + ".undo");
+			select = inputMode(1, dogs.length);
 			if(select != dogs.length && dogs[realNo[select - 1]].getHP() <= 0){
-				println(dogs[realNo[select - 1]].getName() + " dead.....");
-				println("select fight match again please. \n[enter to continue]");	
-				//input.nextLine();
+				updateData += println(dogs[realNo[select - 1]].getName() + " dead.....");
+				updateData += println("select fight match again please. \n[enter to continue]");	
+				input.nextLine();
 				continue;
 			}	
 			if(select == dogs.length)
@@ -187,35 +254,35 @@ public class Dog_UI {
 				
 				String[] listTmp = dogs[dog].getListAttack();
 		//		for(int i=0;i<listTmp.length;i++){
-		//			println((i + 1) + "." + listTmp[i]);
+		//			updateData += println((i + 1) + "." + listTmp[i]);
 		//		}		
 			//	selAttk = inputMode(1, listTmp.length);
 			while(true){	
 				selAttk = (int)(Math.random()*listTmp.length + 1 );
 				switch(listTmp[selAttk -1]){
 					case "fire":
-							println("\n" + dogs[dog].getName() +
+							updateData += println("\n" + dogs[dog].getName() +
 							 " attack " + dogs[realNo[select - 1]].getName()
 							 + " with " + dogs[dog].performFire() + 
 							" effect : -" + dogs[dog].getFireDetail().getFireDamage());
 							damage = dogs[dog].getFireDetail().getFireDamage();				
 						break;
 					case "ice":
-                                                        println("\n" + dogs[dog].getName() +
+                                                        updateData += println("\n" + dogs[dog].getName() +
                                                          " attack " + dogs[realNo[select - 1]].getName()
                                                          + " with " + dogs[dog].performIce() + 
                                                         " effect : -" + dogs[dog].getIceDetail().getIceDamage());
                                                         damage = dogs[dog].getIceDetail().getIceDamage();							
 						break;
 					case "bite":
-                                                        println("\n" + dogs[dog].getName() +
+                                                        updateData += println("\n" + dogs[dog].getName() +
                                                          " attack " + dogs[realNo[select - 1]].getName()
                                                          + " with " + dogs[dog].performBite() + 
                                                         " effect : -" + dogs[dog].getBiteDetail().getBiteDamage());
                                                         damage = dogs[dog].getBiteDetail().getBiteDamage();
 						break;
 					case "hit":
-                                                        println("\n" + dogs[dog].getName() +
+                                                        updateData += println("\n" + dogs[dog].getName() +
                                                          " attack " + dogs[realNo[select - 1]].getName()
                                                          + " with " + dogs[dog].performHit() + 
                                                         " effect : -" + dogs[dog].getHitDetail().getHitDamage());
@@ -226,15 +293,15 @@ public class Dog_UI {
                         if(hpTmp < 0)
                                 hpTmp = 0;    
                         dogs[realNo[select - 1]].setHP(hpTmp);
-                        println(dogs[realNo[select - 1]].getName() + " HP Remain : " + dogs[realNo[select - 1]].getHP());
+                        updateData += println(dogs[realNo[select - 1]].getName() + " HP Remain : " + dogs[realNo[select - 1]].getHP());
                         if(hpTmp > 0){ 
                                 isLife = counterAttackRandom(dog, realNo[select - 1]);
                         }else{
-                                println(dogs[realNo[select - 1]].getName() + " dead..... ");
+                                updateData += println(dogs[realNo[select - 1]].getName() + " dead..... ");
 				//input.nextLine();
                        		isLife = false; 
 			}    
-                        println("");
+                        updateData += println("");
                         if(!isLife) 
                                 break;
 			}// end inside while
@@ -243,13 +310,13 @@ public class Dog_UI {
 			if(hpTmp < 0)
 				hpTmp = 0;	
 			dogs[realNo[select - 1]].setHP(hpTmp);
-			println(dogs[realNo[select - 1]].getName() + " HP Remain : " + dogs[realNo[select - 1]].getHP());
+			updateData += println(dogs[realNo[select - 1]].getName() + " HP Remain : " + dogs[realNo[select - 1]].getHP());
 			if(hpTmp > 0){
 				isLife = counterAttackRandom(dog, realNo[select - 1]);
 			}else{
-				println(dogs[realNo[select - 1]].getName() + " dead.....");
+				updateData += println(dogs[realNo[select - 1]].getName() + " dead.....");
 			}	
-			println("");
+			updateData += println("");
 			if(!isLife) 
 				break;
 	*/
@@ -258,13 +325,18 @@ public class Dog_UI {
 		}	
 		return isLife;	
 	}
-	public void selectBehavior(int dog){
+	public void selectBehavior(GeneralDog dog){
 		int select = 0;
 		boolean isLife = true;
 		while(true){
+			 try{
+                                Thread.sleep(dog.getActionTime() * 1000);
+                        }catch(InterruptedException ex){
+                                updateData += println(ex.toString());
+                        }
+			/*
 			String detailTmp = "";
-			println("name is " + dogs[dog].getName() + " [breed is " + dogs[dog].getBreed()  + "]");	
-		/*
+			updateData += println("name is " + dogs[dog].getName() + " [breed is " + dogs[dog].getBreed()  + "]");	
 			for(int i=0;i<listBehavior.length + 1;i++){
 				if(i < listBehavior.length){
 					detailTmp += (i + 1) + "." + listBehavior[i] + "\n";
@@ -273,68 +345,66 @@ public class Dog_UI {
 					detailTmp += (i + 2) + ".undo";
 				}
 			}	
-		*/
-			println(detailTmp);
-			select = (int)(Math.random()*listBehavior.length + 2);
-		//	select = inputMode(1, listBehavior.length + 2);
-			if(select < listBehavior.length + 2){		
-			println("====================================");
+			updateData += println(detailTmp);
+			select = inputMode(1, listBehavior.length + 2);
+			*/
+			//if(select < listBehavior.length + 2){		
+			select = (int)(Math.random()*listBehavior.length + 1);
 			switch(select){
 				case 1:
-					println(dogs[dog].run()); 
+					updateData = println("name is " + dog.getName() + " >>> "  + dog.run())  + updateData; 
 					break;
 				case 2:
-					println(dogs[dog].walk());
+					updateData = println("name is " + dog.getName() + " >>> "  + dog.walk()) + updateData;
 					break;
 				case 3: 
-					println(dogs[dog].bark());
+					updateData = println("name is " + dog.getName() + " >>> "  + dog.bark())  + updateData;
 					break;
 				case 4:
-					println(dogs[dog].jump());
+					updateData = println("name is " + dog.getName() + " >>> "  + dog.jump()) + updateData;
 					break;
 				case 5:
-					println(dogs[dog].eat());
-					break;
+					updateData = println("name is " + dog.getName() + " >>> "  + dog.eat()) + updateData;
+					break; 
 				case 6:
-					println(dogs[dog].sleep());
+					updateData = println("name is " + dog.getName() + " >>> "  + dog.sleep()) + updateData;
 					break;
 				case 7:
-					println(dogs[dog].wakeUp());
+					updateData = println("name is " + dog.getName() + " >>> "  + dog.wakeUp()) + updateData;
 					break;
 				case 8:
-					println(dogs[dog].fawning());
+					updateData = println("name is " + dog.getName() + " >>> "  + dog.fawning()) + updateData;
 					break;
 				case 9:
-					println(dogs[dog].defecate());
+					updateData = println("name is " + dog.getName() + " >>> "  + dog.defecate()) + updateData;
 					break;
 				case 10: 
-					println(dogs[dog].urinate());
+					updateData = println("name is " + dog.getName() + " >>> "  + dog.urinate()) + updateData;
 					break;
 				case 11:
-					println(">>>select match [" + dogs[dog].getName() + " | " + dogs[dog].getBreed() + "]<<<");
-					isLife = fightMode(dog);	
+					//updateData += println(">>>select match [" + dogs[dog].getName() + " | " + dogs[dog].getBreed() + "]<<<");
+					//isLife = fightMode(dog);	
 					break;
 			}	
-				if(!isLife){
-					print("\n[enter to continue]");	
-					input.nextLine();	
-				}
-				println("====================================");
-			}else{
-				break;
-			}
+			//	if(!isLife){
+			//		updateData += print("\n[enter to continue]");	
+			//		input.nextLine();	
+			//	}
+		//	}else{
+		//		break;
+		//	}
 			if(!isLife)
 				break;
 		}
 	}
 	public void startProgram(){
-		println("1.start a dog life");
-		println("2.exit");
+		updateData += println("1.start a dog life");
+		updateData += println("2.exit");
 		if(inputMode(1, 2) == 2)
 			exitProgram();		
 	}
 	public void exitProgram(){
-		println("\n>>>> BYE <<<<\n");
+		updateData += println("\n>>>> BYE <<<<\n");
 		putFile.fileClose();
 		System.exit(0);
 	}	
@@ -350,32 +420,34 @@ public class Dog_UI {
 		int select = 0;
 		String str = "";		
 		while(true){
-			println("select : ");
+			updateData += println("select : ");
 			str = input.nextLine();
 			putFile.writeData(str + "\n");
 			log.info(str);	
 			if(isNumber(str)){
 				select = Integer.parseInt(str);
 				if(select < begin || select > end){
-					println("*****your select without of range*****");
+					updateData += println("*****your select without of range*****");
 				}else{
 					break;	
 				}	
 			}else{
-				println("*****your select isn't number*****");	
+				updateData += println("*****your select isn't number*****");	
 			}
 		}	
 		return select;
 	}
-	public void print(String str){
+	public String print(String str){
 		System.out.print(str);
 		putFile.writeData(str);
 		log.info(str);
+		return str;
 	}
-	public void println(String str){
+	public String println(String str){
 		System.out.println(str);
 		putFile.writeData(str);
 		log.info(str);	
+		return str + "<br/>";
 	}
 	public void putToFile(String str){
 		try{	
@@ -391,8 +463,8 @@ public class Dog_UI {
 			bufferWriter.write(str);	
 			bufferWriter.close();
 		}catch(IOException ex){
-			println(ex.toString());
+			updateData += println(ex.toString());
 		}
 	}
-}// END THREAD CLASS
-
+}// End DogThread
+}

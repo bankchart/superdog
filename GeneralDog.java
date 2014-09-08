@@ -1,7 +1,9 @@
 public abstract class GeneralDog {
+	private boolean busy;
 	private int hp;
 	private int height;
 	private int weight;
+	private int actionTime;
 	private String name;
 	private	String sex;
 	private String breed;
@@ -108,5 +110,17 @@ public abstract class GeneralDog {
 	}
 	public String getEye(){
 		return eye;	
+	}
+	public void setBusy(boolean busy){
+		this.busy = busy;
+	}
+	public boolean isBusy(){
+		return busy;
+	}
+	public void setActionTime(int actionTime){
+		this.actionTime = actionTime;
+	}
+	public int getActionTime(){
+		return actionTime;
 	}
 }
