@@ -1,0 +1,1596 @@
+Wed 2014.09.03 at 10:52:50 AM
+
+1.start a dog life
+2.exit
+select : 
+1
+1.name is jack
+  breed is American Pit Bull Terrier
+  height is 20 cm.
+  weight is 16 kg.
+  hair is short and brown-white be spotted
+  eye is amber
+  sex is female
+  HP is 100
+  attack detail : bite
+
+2.name is kaew jaa
+  breed is IceDog
+  height is 20 cm.
+  weight is 18 kg.
+  hair is medium and gray-white be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : ice, bite
+
+3.name is domita
+  breed is FireyerDog
+  height is 51 cm.
+  weight is 27 kg.
+  hair is long and orange-brown be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : fire, hit
+
+4.name is joseph
+  breed is St.Bernard
+  height is 70 cm.
+  weight is 100 kg.
+  hair is medium and brown-white be spotted
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : bite
+
+5.name is coco
+  breed is Rottweilers
+  height is 69 cm.
+  weight is 59 kg.
+  hair is short and black be shiny
+  eye is brown
+  sex is male
+  HP is 100
+  attack detail : bite, hit
+
+6.exit
+
+
+select : 
+5
+name is coco [breed is Rottweilers]
+1.run
+2.walk
+3.bark
+4.jump
+5.eat
+6.sleep
+7.wake up
+8.fawning
+9.defecate
+10.urinate
+11.fight
+12.undo
+select : 
+1
+====================================
+It's run.
+====================================
+name is coco [breed is Rottweilers]
+1.run
+2.walk
+3.bark
+4.jump
+5.eat
+6.sleep
+7.wake up
+8.fawning
+9.defecate
+10.urinate
+11.fight
+12.undo
+select : 
+2
+====================================
+It's walk.
+====================================
+name is coco [breed is Rottweilers]
+1.run
+2.walk
+3.bark
+4.jump
+5.eat
+6.sleep
+7.wake up
+8.fawning
+9.defecate
+10.urinate
+11.fight
+12.undo
+select : 
+3
+====================================
+It's bark.
+====================================
+name is coco [breed is Rottweilers]
+1.run
+2.walk
+3.bark
+4.jump
+5.eat
+6.sleep
+7.wake up
+8.fawning
+9.defecate
+10.urinate
+11.fight
+12.undo
+select : 
+11
+====================================
+>>>select match [coco | Rottweilers]<<<
+1.Name : jack
+  HP : 100
+  Height : 20
+  Weight : 16
+  Breed : American Pit Bull Terrier
+  Sex : female
+2.Name : kaew jaa
+  HP : 100
+  Height : 20
+  Weight : 18
+  Breed : IceDog
+  Sex : male
+3.Name : domita
+  HP : 100
+  Height : 51
+  Weight : 27
+  Breed : FireyerDog
+  Sex : male
+4.Name : joseph
+  HP : 100
+  Height : 70
+  Weight : 100
+  Breed : St.Bernard
+  Sex : male
+5.undo
+select : 
+2
+
+coco attack kaew jaa with BITE ATTACK !!! effect : -35
+kaew jaa HP Remain : 65
+kaew jaa counterattrack coco with BITE ATTACK !!! effect : -10
+coco HP Remain : 90
+
+
+coco attack kaew jaa with HIT ATTACK !!! effect : -14
+kaew jaa HP Remain : 51
+kaew jaa counterattrack coco with BITE ATTACK !!! effect : -10
+coco HP Remain : 80
+
+
+coco attack kaew jaa with HIT ATTACK !!! effect : -14
+kaew jaa HP Remain : 37
+kaew jaa counterattrack coco with BITE ATTACK !!! effect : -10
+coco HP Remain : 70
+
+
+coco attack kaew jaa with BITE ATTACK !!! effect : -35
+kaew jaa HP Remain : 2
+kaew jaa counterattrack coco with ICE ATTACK !!! effect : -32
+coco HP Remain : 38
+
+
+coco attack kaew jaa with HIT ATTACK !!! effect : -14
+kaew jaa HP Remain : 0
+kaew jaa dead..... 
+
+
+[enter to continue]
+====================================
+1.name is jack
+  breed is American Pit Bull Terrier
+  height is 20 cm.
+  weight is 16 kg.
+  hair is short and brown-white be spotted
+  eye is amber
+  sex is female
+  HP is 100
+  attack detail : bite
+
+2.name is kaew jaa
+  breed is IceDog
+  height is 20 cm.
+  weight is 18 kg.
+  hair is medium and gray-white be shag
+  eye is dark brown
+  sex is male
+  HP is 0
+  attack detail : ice, bite
+
+3.name is domita
+  breed is FireyerDog
+  height is 51 cm.
+  weight is 27 kg.
+  hair is long and orange-brown be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : fire, hit
+
+4.name is joseph
+  breed is St.Bernard
+  height is 70 cm.
+  weight is 100 kg.
+  hair is medium and brown-white be spotted
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : bite
+
+5.name is coco
+  breed is Rottweilers
+  height is 69 cm.
+  weight is 59 kg.
+  hair is short and black be shiny
+  eye is brown
+  sex is male
+  HP is 38
+  attack detail : bite, hit
+
+6.exit
+
+
+select : 
+5
+name is coco [breed is Rottweilers]
+1.run
+2.walk
+3.bark
+4.jump
+5.eat
+6.sleep
+7.wake up
+8.fawning
+9.defecate
+10.urinate
+11.fight
+12.undo
+select : 
+10
+====================================
+It's urinate.
+====================================
+name is coco [breed is Rottweilers]
+1.run
+2.walk
+3.bark
+4.jump
+5.eat
+6.sleep
+7.wake up
+8.fawning
+9.defecate
+10.urinate
+11.fight
+12.undo
+select : 
+1
+====================================
+It's run.
+====================================
+name is coco [breed is Rottweilers]
+1.run
+2.walk
+3.bark
+4.jump
+5.eat
+6.sleep
+7.wake up
+8.fawning
+9.defecate
+10.urinate
+11.fight
+12.undo
+select : 
+11
+====================================
+>>>select match [coco | Rottweilers]<<<
+1.Name : jack
+  HP : 100
+  Height : 20
+  Weight : 16
+  Breed : American Pit Bull Terrier
+  Sex : female
+2.Name : kaew jaa
+  HP : 0
+  Height : 20
+  Weight : 18
+  Breed : IceDog
+  Sex : male
+3.Name : domita
+  HP : 100
+  Height : 51
+  Weight : 27
+  Breed : FireyerDog
+  Sex : male
+4.Name : joseph
+  HP : 100
+  Height : 70
+  Weight : 100
+  Breed : St.Bernard
+  Sex : male
+5.undo
+select : 
+2
+kaew jaa dead.....
+select fight match again please. 
+[enter to continue]
+1.Name : jack
+  HP : 100
+  Height : 20
+  Weight : 16
+  Breed : American Pit Bull Terrier
+  Sex : female
+2.Name : kaew jaa
+  HP : 0
+  Height : 20
+  Weight : 18
+  Breed : IceDog
+  Sex : male
+3.Name : domita
+  HP : 100
+  Height : 51
+  Weight : 27
+  Breed : FireyerDog
+  Sex : male
+4.Name : joseph
+  HP : 100
+  Height : 70
+  Weight : 100
+  Breed : St.Bernard
+  Sex : male
+5.undo
+select : 
+5
+====================================
+name is coco [breed is Rottweilers]
+1.run
+2.walk
+3.bark
+4.jump
+5.eat
+6.sleep
+7.wake up
+8.fawning
+9.defecate
+10.urinate
+11.fight
+12.undo
+select : 
+12
+1.name is jack
+  breed is American Pit Bull Terrier
+  height is 20 cm.
+  weight is 16 kg.
+  hair is short and brown-white be spotted
+  eye is amber
+  sex is female
+  HP is 100
+  attack detail : bite
+
+2.name is kaew jaa
+  breed is IceDog
+  height is 20 cm.
+  weight is 18 kg.
+  hair is medium and gray-white be shag
+  eye is dark brown
+  sex is male
+  HP is 0
+  attack detail : ice, bite
+
+3.name is domita
+  breed is FireyerDog
+  height is 51 cm.
+  weight is 27 kg.
+  hair is long and orange-brown be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : fire, hit
+
+4.name is joseph
+  breed is St.Bernard
+  height is 70 cm.
+  weight is 100 kg.
+  hair is medium and brown-white be spotted
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : bite
+
+5.name is coco
+  breed is Rottweilers
+  height is 69 cm.
+  weight is 59 kg.
+  hair is short and black be shiny
+  eye is brown
+  sex is male
+  HP is 38
+  attack detail : bite, hit
+
+6.exit
+
+
+select : 
+6
+
+>>>> BYE <<<<
+
+Wed 2014.09.03 at 05:17:54 PM
+
+1.start a dog life
+2.exit
+select : 
+1
+1.name is jack
+  breed is American Pit Bull Terrier
+  height is 20 cm.
+  weight is 16 kg.
+  hair is short and brown-white be spotted
+  eye is amber
+  sex is female
+  HP is 100
+  attack detail : bite
+
+2.name is kaew jaa
+  breed is IceDog
+  height is 20 cm.
+  weight is 18 kg.
+  hair is medium and gray-white be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : ice, bite
+
+3.name is domita
+  breed is FireyerDog
+  height is 51 cm.
+  weight is 27 kg.
+  hair is long and orange-brown be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : fire, hit
+
+4.name is joseph
+  breed is St.Bernard
+  height is 70 cm.
+  weight is 100 kg.
+  hair is medium and brown-white be spotted
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : bite
+
+5.name is coco
+  breed is Rottweilers
+  height is 69 cm.
+  weight is 59 kg.
+  hair is short and black be shiny
+  eye is brown
+  sex is male
+  HP is 100
+  attack detail : bite, hit
+
+6.exit
+
+
+select : 
+5
+name is coco [breed is Rottweilers]
+1.run
+2.walk
+3.bark
+4.jump
+5.eat
+6.sleep
+7.wake up
+8.fawning
+9.defecate
+10.urinate
+11.fight
+12.undo
+select : 
+11
+====================================
+>>>select match [coco | Rottweilers]<<<
+1.Name : jack
+  HP : 100
+  Height : 20
+  Weight : 16
+  Breed : American Pit Bull Terrier
+  Sex : female
+2.Name : kaew jaa
+  HP : 100
+  Height : 20
+  Weight : 18
+  Breed : IceDog
+  Sex : male
+3.Name : domita
+  HP : 100
+  Height : 51
+  Weight : 27
+  Breed : FireyerDog
+  Sex : male
+4.Name : joseph
+  HP : 100
+  Height : 70
+  Weight : 100
+  Breed : St.Bernard
+  Sex : male
+5.undo
+select : 
+4
+
+coco attack joseph with HIT ATTACK !!! effect : -14
+joseph HP Remain : 86
+joseph counterattrack coco with BITE ATTACK !!! effect : -15
+coco HP Remain : 85
+
+
+coco attack joseph with HIT ATTACK !!! effect : -14
+joseph HP Remain : 72
+joseph counterattrack coco with BITE ATTACK !!! effect : -15
+coco HP Remain : 70
+
+
+coco attack joseph with BITE ATTACK !!! effect : -35
+joseph HP Remain : 37
+joseph counterattrack coco with BITE ATTACK !!! effect : -15
+coco HP Remain : 55
+
+
+coco attack joseph with HIT ATTACK !!! effect : -14
+joseph HP Remain : 23
+joseph counterattrack coco with BITE ATTACK !!! effect : -15
+coco HP Remain : 40
+
+
+coco attack joseph with HIT ATTACK !!! effect : -14
+joseph HP Remain : 9
+joseph counterattrack coco with BITE ATTACK !!! effect : -15
+coco HP Remain : 25
+
+
+coco attack joseph with HIT ATTACK !!! effect : -14
+joseph HP Remain : 0
+joseph dead..... 
+
+
+[enter to continue]
+====================================
+1.name is jack
+  breed is American Pit Bull Terrier
+  height is 20 cm.
+  weight is 16 kg.
+  hair is short and brown-white be spotted
+  eye is amber
+  sex is female
+  HP is 100
+  attack detail : bite
+
+2.name is kaew jaa
+  breed is IceDog
+  height is 20 cm.
+  weight is 18 kg.
+  hair is medium and gray-white be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : ice, bite
+
+3.name is domita
+  breed is FireyerDog
+  height is 51 cm.
+  weight is 27 kg.
+  hair is long and orange-brown be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : fire, hit
+
+4.name is joseph
+  breed is St.Bernard
+  height is 70 cm.
+  weight is 100 kg.
+  hair is medium and brown-white be spotted
+  eye is dark brown
+  sex is male
+  HP is 0
+  attack detail : bite
+
+5.name is coco
+  breed is Rottweilers
+  height is 69 cm.
+  weight is 59 kg.
+  hair is short and black be shiny
+  eye is brown
+  sex is male
+  HP is 25
+  attack detail : bite, hit
+
+6.exit
+
+
+select : 
+6
+
+>>>> BYE <<<<
+
+Wed 2014.09.03 at 08:48:08 PM
+
+1.start a dog life
+2.exit
+select : 
+1
+1.name is jack
+  breed is American Pit Bull Terrier
+  height is 20 cm.
+  weight is 16 kg.
+  hair is short and brown-white be spotted
+  eye is amber
+  sex is female
+  HP is 100
+  attack detail : bite
+
+2.name is kaew jaa
+  breed is IceDog
+  height is 20 cm.
+  weight is 18 kg.
+  hair is medium and gray-white be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : ice, bite
+
+3.name is domita
+  breed is FireyerDog
+  height is 51 cm.
+  weight is 27 kg.
+  hair is long and orange-brown be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : fire, hit
+
+4.name is joseph
+  breed is St.Bernard
+  height is 70 cm.
+  weight is 100 kg.
+  hair is medium and brown-white be spotted
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : bite
+
+5.name is coco
+  breed is Rottweilers
+  height is 69 cm.
+  weight is 59 kg.
+  hair is short and black be shiny
+  eye is brown
+  sex is male
+  HP is 100
+  attack detail : bite, hit
+
+6.exit
+
+
+select : 
+5
+name is coco [breed is Rottweilers]
+1.run
+2.walk
+3.bark
+4.jump
+5.eat
+6.sleep
+7.wake up
+8.fawning
+9.defecate
+10.urinate
+11.fight
+12.undo
+select : 
+1
+====================================
+It's run.
+====================================
+name is coco [breed is Rottweilers]
+1.run
+2.walk
+3.bark
+4.jump
+5.eat
+6.sleep
+7.wake up
+8.fawning
+9.defecate
+10.urinate
+11.fight
+12.undo
+select : 
+2
+====================================
+It's walk.
+====================================
+name is coco [breed is Rottweilers]
+1.run
+2.walk
+3.bark
+4.jump
+5.eat
+6.sleep
+7.wake up
+8.fawning
+9.defecate
+10.urinate
+11.fight
+12.undo
+select : 
+3
+====================================
+It's bark.
+====================================
+name is coco [breed is Rottweilers]
+1.run
+2.walk
+3.bark
+4.jump
+5.eat
+6.sleep
+7.wake up
+8.fawning
+9.defecate
+10.urinate
+11.fight
+12.undo
+select : 
+10
+====================================
+It's urinate.
+====================================
+name is coco [breed is Rottweilers]
+1.run
+2.walk
+3.bark
+4.jump
+5.eat
+6.sleep
+7.wake up
+8.fawning
+9.defecate
+10.urinate
+11.fight
+12.undo
+select : 
+11
+====================================
+>>>select match [coco | Rottweilers]<<<
+1.Name : jack
+  HP : 100
+  Height : 20
+  Weight : 16
+  Breed : American Pit Bull Terrier
+  Sex : female
+2.Name : kaew jaa
+  HP : 100
+  Height : 20
+  Weight : 18
+  Breed : IceDog
+  Sex : male
+3.Name : domita
+  HP : 100
+  Height : 51
+  Weight : 27
+  Breed : FireyerDog
+  Sex : male
+4.Name : joseph
+  HP : 100
+  Height : 70
+  Weight : 100
+  Breed : St.Bernard
+  Sex : male
+5.undo
+select : 
+2
+
+coco attack kaew jaa with BITE ATTACK !!! effect : -35
+kaew jaa HP Remain : 65
+kaew jaa counterattrack coco with BITE ATTACK !!! effect : -10
+coco HP Remain : 90
+
+
+coco attack kaew jaa with HIT ATTACK !!! effect : -14
+kaew jaa HP Remain : 51
+kaew jaa counterattrack coco with ICE ATTACK !!! effect : -32
+coco HP Remain : 58
+
+
+coco attack kaew jaa with BITE ATTACK !!! effect : -35
+kaew jaa HP Remain : 16
+kaew jaa counterattrack coco with ICE ATTACK !!! effect : -32
+coco HP Remain : 26
+
+
+coco attack kaew jaa with BITE ATTACK !!! effect : -35
+kaew jaa HP Remain : 0
+kaew jaa dead..... 
+
+
+[enter to continue]
+====================================
+1.name is jack
+  breed is American Pit Bull Terrier
+  height is 20 cm.
+  weight is 16 kg.
+  hair is short and brown-white be spotted
+  eye is amber
+  sex is female
+  HP is 100
+  attack detail : bite
+
+2.name is kaew jaa
+  breed is IceDog
+  height is 20 cm.
+  weight is 18 kg.
+  hair is medium and gray-white be shag
+  eye is dark brown
+  sex is male
+  HP is 0
+  attack detail : ice, bite
+
+3.name is domita
+  breed is FireyerDog
+  height is 51 cm.
+  weight is 27 kg.
+  hair is long and orange-brown be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : fire, hit
+
+4.name is joseph
+  breed is St.Bernard
+  height is 70 cm.
+  weight is 100 kg.
+  hair is medium and brown-white be spotted
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : bite
+
+5.name is coco
+  breed is Rottweilers
+  height is 69 cm.
+  weight is 59 kg.
+  hair is short and black be shiny
+  eye is brown
+  sex is male
+  HP is 26
+  attack detail : bite, hit
+
+6.exit
+
+
+select : 
+sfsdfs
+*****your select isn't number*****
+select : 
+666666
+*****your select without of range*****
+select : 
+6
+
+>>>> BYE <<<<
+
+Wed 2014.09.03 at 10:41:53 PM
+
+1.start a dog life
+2.exit
+select : 
+2
+
+>>>> BYE <<<<
+
+Wed 2014.09.03 at 10:45:24 PM
+
+1.start a dog life
+2.exit
+select : 
+2
+
+>>>> BYE <<<<
+
+Thu 2014.09.04 at 11:37:35 AM
+
+1.start a dog life
+2.exit
+select : 
+1
+
+1.name is jack
+  breed is American Pit Bull Terrier
+  height is 20 cm.
+  weight is 16 kg.
+  hair is short and brown-white be spotted
+  eye is amber
+  sex is female
+  HP is 100
+  attack detail : bite
+
+2.name is kaew jaa
+  breed is IceDog
+  height is 20 cm.
+  weight is 18 kg.
+  hair is medium and gray-white be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : ice, bite
+
+3.name is domita
+  breed is FireyerDog
+  height is 51 cm.
+  weight is 27 kg.
+  hair is long and orange-brown be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : fire, hit
+
+4.name is joseph
+  breed is St.Bernard
+  height is 70 cm.
+  weight is 100 kg.
+  hair is medium and brown-white be spotted
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : bite
+
+5.name is coco
+  breed is Rottweilers
+  height is 69 cm.
+  weight is 59 kg.
+  hair is short and black be shiny
+  eye is brown
+  sex is male
+  HP is 100
+  attack detail : bite, hit
+
+6.exit
+
+
+select : 
+4
+
+name is joseph [breed is St.Bernard]
+1.run
+2.walk
+3.bark
+4.jump
+5.eat
+6.sleep
+7.wake up
+8.fawning
+9.defecate
+10.urinate
+11.fight
+12.undo
+select : 
+1
+
+====================================
+It's run.
+====================================
+name is joseph [breed is St.Bernard]
+1.run
+2.walk
+3.bark
+4.jump
+5.eat
+6.sleep
+7.wake up
+8.fawning
+9.defecate
+10.urinate
+11.fight
+12.undo
+select : 
+12
+
+1.name is jack
+  breed is American Pit Bull Terrier
+  height is 20 cm.
+  weight is 16 kg.
+  hair is short and brown-white be spotted
+  eye is amber
+  sex is female
+  HP is 100
+  attack detail : bite
+
+2.name is kaew jaa
+  breed is IceDog
+  height is 20 cm.
+  weight is 18 kg.
+  hair is medium and gray-white be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : ice, bite
+
+3.name is domita
+  breed is FireyerDog
+  height is 51 cm.
+  weight is 27 kg.
+  hair is long and orange-brown be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : fire, hit
+
+4.name is joseph
+  breed is St.Bernard
+  height is 70 cm.
+  weight is 100 kg.
+  hair is medium and brown-white be spotted
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : bite
+
+5.name is coco
+  breed is Rottweilers
+  height is 69 cm.
+  weight is 59 kg.
+  hair is short and black be shiny
+  eye is brown
+  sex is male
+  HP is 100
+  attack detail : bite, hit
+
+6.exit
+
+
+select : 
+6
+
+
+>>>> BYE <<<<
+
+Thu 2014.09.04 at 11:39:07 AM
+
+1.start a dog life
+2.exit
+select : 
+2
+
+
+>>>> BYE <<<<
+
+Thu 2014.09.04 at 11:41:07 AM
+
+1.start a dog life
+2.exit
+select : 
+1
+
+1.name is jack
+  breed is American Pit Bull Terrier
+  height is 20 cm.
+  weight is 16 kg.
+  hair is short and brown-white be spotted
+  eye is amber
+  sex is female
+  HP is 100
+  attack detail : bite
+
+2.name is kaew jaa
+  breed is IceDog
+  height is 20 cm.
+  weight is 18 kg.
+  hair is medium and gray-white be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : ice, bite
+
+3.name is domita
+  breed is FireyerDog
+  height is 51 cm.
+  weight is 27 kg.
+  hair is long and orange-brown be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : fire, hit
+
+4.name is joseph
+  breed is St.Bernard
+  height is 70 cm.
+  weight is 100 kg.
+  hair is medium and brown-white be spotted
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : bite
+
+5.name is coco
+  breed is Rottweilers
+  height is 69 cm.
+  weight is 59 kg.
+  hair is short and black be shiny
+  eye is brown
+  sex is male
+  HP is 100
+  attack detail : bite, hit
+
+6.exit
+
+
+select : 
+6
+
+
+>>>> BYE <<<<
+
+Thu 2014.09.04 at 11:49:05 AM
+
+1.start a dog life
+2.exit
+select : 
+2
+
+
+>>>> BYE <<<<
+
+Thu 2014.09.04 at 11:55:30 AM
+
+1.start a dog life
+2.exit
+select : 
+1
+
+1.name is jack
+  breed is American Pit Bull Terrier
+  height is 20 cm.
+  weight is 16 kg.
+  hair is short and brown-white be spotted
+  eye is amber
+  sex is female
+  HP is 100
+  attack detail : bite
+
+2.name is kaew jaa
+  breed is IceDog
+  height is 20 cm.
+  weight is 18 kg.
+  hair is medium and gray-white be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : ice, bite
+
+3.name is domita
+  breed is FireyerDog
+  height is 51 cm.
+  weight is 27 kg.
+  hair is long and orange-brown be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : fire, hit
+
+4.name is joseph
+  breed is St.Bernard
+  height is 70 cm.
+  weight is 100 kg.
+  hair is medium and brown-white be spotted
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : bite
+
+5.name is coco
+  breed is Rottweilers
+  height is 69 cm.
+  weight is 59 kg.
+  hair is short and black be shiny
+  eye is brown
+  sex is male
+  HP is 100
+  attack detail : bite, hit
+
+6.exit
+
+
+select : 
+4
+
+name is joseph [breed is St.Bernard]
+1.run
+2.walk
+3.bark
+4.jump
+5.eat
+6.sleep
+7.wake up
+8.fawning
+9.defecate
+10.urinate
+11.fight
+12.undo
+select : 
+6
+
+====================================
+It's sleep.
+====================================
+name is joseph [breed is St.Bernard]
+1.run
+2.walk
+3.bark
+4.jump
+5.eat
+6.sleep
+7.wake up
+8.fawning
+9.defecate
+10.urinate
+11.fight
+12.undo
+select : 
+12
+
+1.name is jack
+  breed is American Pit Bull Terrier
+  height is 20 cm.
+  weight is 16 kg.
+  hair is short and brown-white be spotted
+  eye is amber
+  sex is female
+  HP is 100
+  attack detail : bite
+
+2.name is kaew jaa
+  breed is IceDog
+  height is 20 cm.
+  weight is 18 kg.
+  hair is medium and gray-white be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : ice, bite
+
+3.name is domita
+  breed is FireyerDog
+  height is 51 cm.
+  weight is 27 kg.
+  hair is long and orange-brown be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : fire, hit
+
+4.name is joseph
+  breed is St.Bernard
+  height is 70 cm.
+  weight is 100 kg.
+  hair is medium and brown-white be spotted
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : bite
+
+5.name is coco
+  breed is Rottweilers
+  height is 69 cm.
+  weight is 59 kg.
+  hair is short and black be shiny
+  eye is brown
+  sex is male
+  HP is 100
+  attack detail : bite, hit
+
+6.exit
+
+
+select : 
+6
+
+
+>>>> BYE <<<<
+
+Thu 2014.09.04 at 12:02:15 PM
+
+1.start a dog life
+2.exit
+select : 
+2
+
+
+>>>> BYE <<<<
+
+Thu 2014.09.04 at 12:05:57 PM
+
+1.start a dog life
+2.exit
+select : 
+1
+
+1.name is jack
+  breed is American Pit Bull Terrier
+  height is 20 cm.
+  weight is 16 kg.
+  hair is short and brown-white be spotted
+  eye is amber
+  sex is female
+  HP is 100
+  attack detail : bite
+
+2.name is kaew jaa
+  breed is IceDog
+  height is 20 cm.
+  weight is 18 kg.
+  hair is medium and gray-white be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : ice, bite
+
+3.name is domita
+  breed is FireyerDog
+  height is 51 cm.
+  weight is 27 kg.
+  hair is long and orange-brown be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : fire, hit
+
+4.name is joseph
+  breed is St.Bernard
+  height is 70 cm.
+  weight is 100 kg.
+  hair is medium and brown-white be spotted
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : bite
+
+5.name is coco
+  breed is Rottweilers
+  height is 69 cm.
+  weight is 59 kg.
+  hair is short and black be shiny
+  eye is brown
+  sex is male
+  HP is 100
+  attack detail : bite, hit
+
+6.exit
+
+
+select : 
+1
+
+name is jack [breed is American Pit Bull Terrier]
+1.run
+2.walk
+3.bark
+4.jump
+5.eat
+6.sleep
+7.wake up
+8.fawning
+9.defecate
+10.urinate
+11.fight
+12.undo
+select : 
+12
+
+1.name is jack
+  breed is American Pit Bull Terrier
+  height is 20 cm.
+  weight is 16 kg.
+  hair is short and brown-white be spotted
+  eye is amber
+  sex is female
+  HP is 100
+  attack detail : bite
+
+2.name is kaew jaa
+  breed is IceDog
+  height is 20 cm.
+  weight is 18 kg.
+  hair is medium and gray-white be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : ice, bite
+
+3.name is domita
+  breed is FireyerDog
+  height is 51 cm.
+  weight is 27 kg.
+  hair is long and orange-brown be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : fire, hit
+
+4.name is joseph
+  breed is St.Bernard
+  height is 70 cm.
+  weight is 100 kg.
+  hair is medium and brown-white be spotted
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : bite
+
+5.name is coco
+  breed is Rottweilers
+  height is 69 cm.
+  weight is 59 kg.
+  hair is short and black be shiny
+  eye is brown
+  sex is male
+  HP is 100
+  attack detail : bite, hit
+
+6.exit
+
+
+select : 
+6
+
+
+>>>> BYE <<<<
+
+Thu 2014.09.04 at 12:07:35 PM
+
+1.start a dog life
+2.exit
+select : 
+1
+
+1.name is jack
+  breed is American Pit Bull Terrier
+  height is 20 cm.
+  weight is 16 kg.
+  hair is short and brown-white be spotted
+  eye is amber
+  sex is female
+  HP is 100
+  attack detail : bite
+
+2.name is kaew jaa
+  breed is IceDog
+  height is 20 cm.
+  weight is 18 kg.
+  hair is medium and gray-white be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : ice, bite
+
+3.name is domita
+  breed is FireyerDog
+  height is 51 cm.
+  weight is 27 kg.
+  hair is long and orange-brown be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : fire, hit
+
+4.name is joseph
+  breed is St.Bernard
+  height is 70 cm.
+  weight is 100 kg.
+  hair is medium and brown-white be spotted
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : bite
+
+5.name is coco
+  breed is Rottweilers
+  height is 69 cm.
+  weight is 59 kg.
+  hair is short and black be shiny
+  eye is brown
+  sex is male
+  HP is 100
+  attack detail : bite, hit
+
+6.exit
+
+
+select : 
+6
+
+
+>>>> BYE <<<<
+
+Thu 2014.09.04 at 12:15:04 PM
+
+1.start a dog life
+2.exit
+select : 
+1
+
+1.name is jack
+  breed is American Pit Bull Terrier
+  height is 20 cm.
+  weight is 16 kg.
+  hair is short and brown-white be spotted
+  eye is amber
+  sex is female
+  HP is 100
+  attack detail : bite
+
+2.name is kaew jaa
+  breed is IceDog
+  height is 20 cm.
+  weight is 18 kg.
+  hair is medium and gray-white be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : ice, bite
+
+3.name is domita
+  breed is FireyerDog
+  height is 51 cm.
+  weight is 27 kg.
+  hair is long and orange-brown be shag
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : fire, hit
+
+4.name is joseph
+  breed is St.Bernard
+  height is 70 cm.
+  weight is 100 kg.
+  hair is medium and brown-white be spotted
+  eye is dark brown
+  sex is male
+  HP is 100
+  attack detail : bite
+
+5.name is coco
+  breed is Rottweilers
+  height is 69 cm.
+  weight is 59 kg.
+  hair is short and black be shiny
+  eye is brown
+  sex is male
+  HP is 100
+  attack detail : bite, hit
+
+6.exit
+
+
+select : 
+6
+
+
+>>>> BYE <<<<
+
