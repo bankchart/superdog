@@ -86,51 +86,6 @@ public class Dog_UI extends HttpServlet {
 		PrintWriter out = res.getWriter();		
 		out.println(updateData);	
 	}
-/*
-		public Dog_UI() throws IOException, SQLException{
-		input = new Scanner(System.in);
-		
-		apb = new PitbullTerrier();
-		apb.setActionTime(2);
-		
-		id = new IceDog();
-		id.setActionTime(4);
-
-		fd = new FireyerDog();
-		fd.setActionTime(6);
-
-		sb = new StBernard();
-		sb.setActionTime(8);		
-
-		rott = new Rottweilers();
-		rott.setActionTime(10);
-
-		dogs = new GeneralDog[5];
-                dogs[0] = apb;
-                dogs[1] = id;
-                dogs[2] = fd;
-                dogs[3] = sb;
-                dogs[4] = rott;
-
-		date = new Date();
-		putFile = new PutToFile("Super Dog History");
-		putFile.isExistFile();
-		putFile.appendData(true);
-		dateFormat = new SimpleDateFormat("E yyyy.MM.dd 'at' hh:mm:ss a"); 
-		putFile.writeData(dateFormat.format(date) + "\n");
-		
-		apdThread = new DogThread(apb);
-		apdThread.start();
-		idThread = new DogThread(id);	
-		idThread.start();
-		fdThread = new DogThread(fd);
-		fdThread.start();
-		sbThread = new DogThread(sb);
-		sbThread.start();
-		rottThread = new DogThread(rott);
-		rottThread.start();
-	}
-*/
 	public class DogThread extends Thread {
 		public GeneralDog dogTmp;	
 		public DogThread(){}
@@ -145,45 +100,8 @@ public class Dog_UI extends HttpServlet {
 	
 
 	public void actionDog(GeneralDog dog){
-		//int select = 0;	
 		while(true){
-			/*
-			String detailTmp = "";
-			for(int i=0;i<dogs.length;i++){
-				detailTmp += (i + 1) + ".name is " + dogs[i].getName() + "\n"; 
-				detailTmp += "  breed is " + dogs[i].getBreed() + "\n"; 	
-				detailTmp += "  height is " + dogs[i].getHeight() + " cm.\n";
-				detailTmp += "  weight is " + dogs[i].getWeight() + " kg.\n";
-				detailTmp += "  hair is " + dogs[i].getHair() + "\n";
-				detailTmp += "  eye is " + dogs[i].getEye() + "\n";	
-				detailTmp += "  sex is " + dogs[i].getSex() + "\n";
-				detailTmp += "  HP is " + dogs[i].getHP() + "\n";
-				detailTmp += "  attack detail : ";
-				String[]listTemp = dogs[i].getListAttack();
-				for(int j=0;j<listTemp.length;j++){
-					detailTmp += listTemp[j];
-					if(j<listTemp.length-1)
-						detailTmp += ", ";
-				}	
-				if(i == dogs.length - 1)
-					detailTmp += "\n\n" + (i + 2) + ".exit";	
-				detailTmp += "\n\n";
-			}
-			*/
 			selectBehavior(dog);	
-			//updateData += print(detailTmp);
-			//select = inputMode(1, dogs.length + 1);	
-			/*if(select == dogs.length + 1){
-				exitProgram();		
-			}else{
-				if(dogs[select - 1].getHP() > 0){
-					selectBehavior(select - 1);
-				}else{
-					updateData += println(dogs[select - 1].getName() + " dead.....select again please. \n[enter to continue]");
-					input.nextLine();	
-				}
-			}
-			*/	
 			
 		}		
 	}
@@ -382,8 +300,8 @@ public class Dog_UI extends HttpServlet {
 					updateData = println("name is " + dog.getName() + " >>> "  + dog.urinate()) + updateData;
 					break;
 				case 11:
-					//updateData += println(">>>select match [" + dogs[dog].getName() + " | " + dogs[dog].getBreed() + "]<<<");
-					//isLife = fightMode(dog);	
+					updateData += println("name is " + dog.getName() + " >>> FIGHTING MODE !!!");
+					isLife = fightMode(dog);	
 					break;
 			}	
 			//	if(!isLife){
